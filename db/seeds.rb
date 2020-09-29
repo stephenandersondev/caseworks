@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Client.destroy_all
+SocialWorker.destroy_all
+
+location =["ATX", "HTX"]
+
+specialties = ["Addiction", "Domestic Violence", "Transgender-Issues", "Food Insecurity", "Housing", "Medical Health", "Mental Health", "Job Security/Placement", "Legal", "Youth"]
+
+20.times do
+    SocialWorker.create(name: Faker::Name.name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.cell_phone, location: location.sample, specialty: specialties.sample, password: "password")
+end
+
+20.times do
+    Client.create(name: Faker::Name.name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.cell_phone, location: location.sample, age: rand(15..60))
+end
