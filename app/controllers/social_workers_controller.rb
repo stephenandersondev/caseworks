@@ -48,6 +48,6 @@ class SocialWorkersController < ApplicationController
   private
 
   def social_worker_params
-    params.require(:social_worker).permit(:name, :phone_number, :image_url, :location, :email, :specialty)
+    params.require(:social_worker).permit(:name, :phone_number, :image_url, :email, :specialty)
   end
 end
