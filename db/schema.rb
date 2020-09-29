@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_161233) do
+ActiveRecord::Schema.define(version: 2020_09_29_213114) do
 
   create_table "cases", force: :cascade do |t|
     t.integer "client_id", null: false
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_09_29_161233) do
     t.string "name"
     t.string "phone_number"
     t.string "image_url"
-    t.string "location"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -48,7 +47,6 @@ ActiveRecord::Schema.define(version: 2020_09_29_161233) do
     t.string "name"
     t.string "address"
     t.string "phone_number"
-    t.string "email"
     t.string "categories"
     t.string "image_url"
     t.string "description"
@@ -62,7 +60,6 @@ ActiveRecord::Schema.define(version: 2020_09_29_161233) do
     t.string "name"
     t.string "phone_number"
     t.string "image_url"
-    t.string "location"
     t.string "email"
     t.string "specialty"
     t.datetime "created_at", precision: 6, null: false
