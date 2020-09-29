@@ -1,0 +1,24 @@
+<h1>Resource Details</h1>
+
+<h2>Name</h2>
+<h3><%= @resource.name %></h3>
+
+<img src='<%= @resource.image_url%>'>
+
+<h2>Address</h2>
+<h3><%= @resource.address %></h3>
+
+<h2>Phone</h2>
+<h3><%= @resource.phone_number %></h3>
+
+<h2>Categories</h2>
+<h3><%= @resource.categories %></h3>
+
+<h2>Description</h2>
+<h3><%= @resource.description %></h3>
+
+<h2>Hours</h2>
+<h3><%= @resource.hours %></h3>
+
+<h2>Web</h2>
+<h3><%= link_to @resource.web_address, @resource.web_address %></h3>
