@@ -1,0 +1,13 @@
+<%= form_with model: @client do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+<%= f.label :phone_number %>
+<%= f.text_field :phone_number %><br>
+<%= f.label :email %>
+<%= f.text_field :email %><br>
+<%= f.label :image_url %>
+<%= f.text_field :image_url %><br>
+<%= f.label :age %>
+<%= f.number_field :age %><br>
+<%= f.submit "Create" %>
+<% end %>

@@ -9,6 +9,7 @@ class CasesController < ApplicationController
 
   def new
     @case = Case.new
+    @social_workers = SocialWorker.all
   end
 
   def create
