@@ -1,4 +1,4 @@
-<%= form_with model: @client do |f| %>
+<%= form_with model: @social_worker do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %><br>
 <%= f.label :phone_number %>
@@ -7,7 +7,7 @@
 <%= f.text_field :email %><br>
 <%= f.label :image_url %>
 <%= f.text_field :image_url %><br>
-<%= f.label :age %>
-<%= f.number_field :age %><br>
+<%= f.label :specialty %>
+<%= f.text_field :specialty %><br>
 <%= f.submit %>
 <% end %>
