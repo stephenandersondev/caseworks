@@ -1,0 +1,7 @@
+<h1>All Social Workers</h1>
+
+<ul>
+<% @social_workers.each do |sw| %>
+<li><%= link_to sw.name, social_worker_path(sw) %></li>
+<% end %>
+</ul>

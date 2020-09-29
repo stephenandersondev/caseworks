@@ -1,5 +1,4 @@
 class SocialWorkersController < ApplicationController
-  before_action :authenticated?, only: [:index, :show]
 
   def index
     @social_workers = SocialWorker.all
