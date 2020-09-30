@@ -1,7 +1,35 @@
-<h1>All Cases</h1>
+<h1 class="display-1 text-center">All Cases</h1>
 
-<ul>
-<% @cases.each do |c| %>
-<li><%= link_to c.name, case_path(c) %></li>
-<% end %>
-</ul>
+<style>
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.btn btn-primary {
+  border-radius 25px
+}
+
+</style>
+
+<div class="container">
+    <div class="row">
+            <% @cases.each do |c| %>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="<%=c.client.image_url%>" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Case #<%=c.id%></h5>
+                        <p class="card-text">
+                        <p><strong>Client:</strong> <%=c.client.name%></p>
+                        <p><strong>Social Worker:</strong> <%=c.social_worker.name%></p>
+                        <p><strong>Focus:</strong> <%=c.focus%></p>
+                        </p>
+                        <a href="/cases/<%=c.id%>" class="btn btn-primary">View Case</a>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>

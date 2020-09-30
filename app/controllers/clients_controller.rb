@@ -27,6 +27,7 @@ class ClientsController < ApplicationController
   end
 
   def update
+    @client = Client.find(params[:id])
     @client.update(client_params)
     if @client.valid?
       @client.save

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :notes
+  resources :notes, only: [:new, :destroy, :create, :edit, :update]
   resources :cases
   resources :resources
   resources :social_workers

@@ -2,14 +2,14 @@
 
 <h2>Client</h2>
 <img src='<%=@case.client.image_url%>'>
-<h3><%=@case.client%></h3>
+<h3><%= link_to @case.client.name, client_path(@case.client)%></h3>
 
 <h2>Social Worker</h2>
 <img src='<%=@case.social_worker.image_url%>'>
-<h3><%=@case.social_worker%></h3>
+<h3><%= link_to @case.social_worker.name, social_worker_path(@case.social_worker)%></h3>
 
 <h2>Resource</h2>
-<h3><%=@case.resource%></h3>
+<h3><%= link_to @case.resource.name, resource_path(@case.resource)%></h3>
 
 <h2>Focus</h2>
 <h3><%=@case.focus%></h3>
@@ -19,16 +19,30 @@
 
 <h2>Notes</h2>
 <ul>
-<% @case.notes.each do |note| %>
-<li><%= note.content %> - <%= note.created_at %></li>
-<% end %>
+    <% @case.notes.each do |note| %>
+    <div class="card">
+        <h5 class="card-header"><%= note.format_time %> by <%= note.created_by %></h5>
+        <div class="card-body">
+            <p class="card-text"><%= note.content %></p>
+            <form method="post" action='/notes/<%=note.id%>'>
+            <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="id" value="<%=note.id%>">
+                <input type="submit" value="Delete" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+    <% end %>
 </ul>
-<form>
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Notes</span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
-</div>
- <button type="submit" class="btn btn-primary">Submit</button>
- </form>
+
+<form action='/notes' method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="note[case_id]" value="<%= @case.id %>">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Notes</span>
+        </div>
+        <textarea class="form-control" aria-label="With textarea" name="note[content]"></textarea>
+    </div><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
