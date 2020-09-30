@@ -10,6 +10,8 @@ class CasesController < ApplicationController
   def new
     @case = Case.new
     @social_workers = SocialWorker.all
+    @clients = Client.all
+    @resource = Resource.all
   end
 
   def create
@@ -25,6 +27,9 @@ class CasesController < ApplicationController
 
   def edit
     @case = Case.find(params[:id])
+    @social_workers = SocialWorker.all
+    @clients = Client.all
+    @resource = Resource.all
   end
 
   def update

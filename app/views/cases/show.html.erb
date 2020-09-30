@@ -1,0 +1,34 @@
+<h1>Case Details</h1>
+
+<h2>Client</h2>
+<img src='<%=@case.client.image_url%>'>
+<h3><%=@case.client%></h3>
+
+<h2>Social Worker</h2>
+<img src='<%=@case.social_worker.image_url%>'>
+<h3><%=@case.social_worker%></h3>
+
+<h2>Resource</h2>
+<h3><%=@case.resource%></h3>
+
+<h2>Focus</h2>
+<h3><%=@case.focus%></h3>
+
+<h2>Status</h2>
+<h3><%=@case.status%></h3>
+
+<h2>Notes</h2>
+<ul>
+<% @case.notes.each do |note| %>
+<li><%= note.content %> - <%= note.created_at %></li>
+<% end %>
+</ul>
+<form>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Notes</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
+ <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
