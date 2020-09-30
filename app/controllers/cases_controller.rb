@@ -11,7 +11,7 @@ class CasesController < ApplicationController
     @case = Case.new
     @social_workers = SocialWorker.all
     @clients = Client.all
-    @resource = Resource.all
+    @resources = Resource.all
   end
 
   def create
@@ -29,7 +29,7 @@ class CasesController < ApplicationController
     @case = Case.find(params[:id])
     @social_workers = SocialWorker.all
     @clients = Client.all
-    @resource = Resource.all
+    @resources = Resource.all
   end
 
   def update
@@ -46,6 +46,6 @@ class CasesController < ApplicationController
   private
 
   def case_params
-    params.require(:case).permit(:client_id, :social_worker_id, :resource_id, :focus, :status)
+    params.require(:case).permit(:client_id, :social_worker_id, :resource_id, :focus)
   end
 end

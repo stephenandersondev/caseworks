@@ -1,14 +1,8 @@
-<% form_for @case do |f|%>
-    <%= f.select :client %>
-    <%= f.submit %>
+<%= form_for @case do |f|%>
+<%= f.collection_select :client_id, @clients, :id, :name, {include_blank: 'Select a Client'} %><br><br>
+<%= f.collection_select :social_worker_id, @social_workers, :id, :name, {include_blank: 'Select a Social Worker'} %><br><br>
+<%= f.collection_select :resource_id, @resources, :id, :name, {include_blank: 'Select a Resource'} %><br><br>
+<%= f.label :focus %>
+<%= f.text_field :focus %><br><br>
+<%= f.submit %>
 <% end %>
-
-#drop down menu for:
-#client
-#social worker
-#resource
-#focus
-#status
-
-#text box for notes
-#submit button 

@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_213114) do
+ActiveRecord::Schema.define(version: 2020_09_30_193159) do
 
   create_table "cases", force: :cascade do |t|
     t.integer "client_id", null: false
     t.integer "social_worker_id", null: false
     t.integer "resource_id", null: false
     t.string "focus"
-    t.string "status"
+    t.string "status", default: "open"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_cases_on_client_id"
