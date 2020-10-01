@@ -44,6 +44,7 @@ class ClientsController < ApplicationController
     redirect_to clients_path
   end
 
+
   private
 
   def client_params

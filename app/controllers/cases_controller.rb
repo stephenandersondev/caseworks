@@ -33,6 +33,7 @@ class CasesController < ApplicationController
   end
 
   def update
+    @case = Case.find(params[:id])
     @case.update(case_params)
     if @case.valid?
       @case.save
@@ -41,6 +42,13 @@ class CasesController < ApplicationController
       flash[:errors] = @case.errors.full_messages
       redirect_to new_case_path
     end
+  end
+
+  def close
+    @case = Case.find(params[:id])
+    @case.close_case
+    @case.save
+    redirect_to case_path(@case)
   end
 
   private

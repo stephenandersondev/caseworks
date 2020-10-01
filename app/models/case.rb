@@ -8,4 +8,8 @@ class Case < ApplicationRecord
   validates :social_worker_id, :presence => true
   validates :resource_id, :presence => true
   validates :focus, :presence => true
+
+  def close_case
+    self.status = "closed"
+  end
 end

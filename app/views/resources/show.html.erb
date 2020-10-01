@@ -29,3 +29,14 @@
 
 <h2>Web</h2>
 <h3><%= link_to @resource.web_address, @resource.web_address %></h3>
+
+
+ <a class="btn btn-primary" href="/resources/<%=@resource.id%>/edit" role="button">Edit</a>
+
+ <form method="post" action='/resources/<%=@resource.id%>'>
+    <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="id" value="<%=@resource.id%>">
+      <input type="submit" value="Delete" class="btn btn-primary">
+</form>
+
