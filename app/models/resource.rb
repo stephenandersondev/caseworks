@@ -15,4 +15,8 @@ class Resource < ApplicationRecord
         link = "https://www.google.com/maps/embed/v1/place?key=#{api_key}&q=#{self.escaped_address}"
     end
 
+    def num_clients
+        self.clients.count
+    end
+
 end

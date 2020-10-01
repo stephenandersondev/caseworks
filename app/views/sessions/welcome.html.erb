@@ -16,13 +16,36 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
+<style>
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+</style>
+<div class="container">
 <p style='font-family:Bradley Hand; font-size:50px; text-align:center'>CaseWorks</p>
 
-<a type="button" class="btn-primary btn-lg btn-block" href='/login' role="button">Log In</a>
+<a type="button" class="btn-primary btn-lg btn-block text-center" href='/login' role="button">Log In</a>
 
 <p style='font-family:Bradley Hand; font-size:30px; text-align:center'>or</p>
 
-<a type="button" class="btn-primary btn-lg btn-block" href='/social_workers/new' role="button">Sign Up</a>
+<a type="button" class="btn-secondary btn-lg btn-block text-center" href='/social_workers/new' role="button">Sign Up</a>
+</div>
 
 </body>
 </html>
