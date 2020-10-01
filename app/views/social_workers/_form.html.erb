@@ -13,3 +13,34 @@
 <%= f.password_field :password %><br>
 <%= f.submit %>
 <% end %>
+
+<div class="container">
+<form action="/social_workers" accept-charset="UTF-8" data-remote="true" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="form-group">
+    <label for="social_worker_name">Name</label>
+    <input type="text" class="form-control" name="social_worker[name]" id="social_worker_name" placeholder="Name" value="<%=@social_worker.name%>">
+  </div>
+  <div class="form-group">
+    <label for="social_worker_phone_number">Phone Number</label>
+    <input type="text" class="form-control" name="social_worker[phone_number]" id="social_worker_phone_number" placeholder="Phone Number" value="<%=@social_worker.phone_number%>">
+  </div>
+  <div class="form-group">
+    <label for="social_worker_email">Email</label>
+    <input type="email" class="form-control" name="social_worker[email]" id="social_worker_email" placeholder="Email" value="<%=@social_worker.email%>">
+  </div>
+   <div class="form-group">
+    <label for="social_worker_image_url">Image URL</label>
+    <input type="text" class="form-control" name="social_worker[image_url]" id="social_worker_image_url" placeholder="Image_URL" value="<%=@social_worker.image_url%>">
+  </div>
+   <div class="form-group">
+    <label for="social_worker_specialty">Specialty</label>
+    <input type="text" class="form-control" name="social_worker[specialty]" id="social_worker_specialty" placeholder="Specialty" value="<%=@social_worker.specialty%>">
+  </div>
+   <div class="form-group">
+    <label for="social_worker_password">Password</label>
+    <input type="password" class="form-control" name="social_worker[password]" id="social_worker_password" placeholder="Password">
+  </div>
+  <input class="btn btn-primary" type="submit" name="commit" value="Submit"/>
+</form>
+</div>
