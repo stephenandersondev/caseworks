@@ -27,6 +27,7 @@ class ResourcesController < ApplicationController
   end
 
   def update
+    @resource = Resource.find(params[:id])
     @resource.update(resource_params)
     if @resource.valid?
       @resource.save

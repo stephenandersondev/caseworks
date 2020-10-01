@@ -1,4 +1,5 @@
 class SocialWorkersController < ApplicationController
+  layout false, only: [:new]
 
   def index
     @social_workers = SocialWorker.all
@@ -16,7 +17,7 @@ class SocialWorkersController < ApplicationController
     @social_worker = SocialWorker.new(social_worker_params)
     if @social_worker.valid?
       @social_worker.save
-      redirect_to social_worker_path(@social_worker)
+      redirect_to '/login'
     else
       flash[:errors] = @social_worker.errors.full_messages
       redirect_to new_social_worker_path
@@ -28,6 +29,7 @@ class SocialWorkersController < ApplicationController
   end
 
   def update
+    @social_worker = SocialWorker.find(params[:id])
     @social_worker.update(social_worker_params)
     if @social_worker.valid?
       @social_worker.save
@@ -47,6 +49,6 @@ class SocialWorkersController < ApplicationController
   private
 
   def social_worker_params
-    params.require(:social_worker).permit(:name, :phone_number, :image_url, :email, :specialty)
+    params.require(:social_worker).permit(:name, :phone_number, :image_url, :email, :specialty, :password)
   end
 end

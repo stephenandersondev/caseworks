@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-  def signin
+  layout false, except: [:dashboard]
+
+  def new
     @social_worker = SocialWorker.new
   end
 
@@ -7,24 +9,33 @@ class SessionsController < ApplicationController
     if session[:id] != nil
       @social_worker = SocialWorker.find(session[:id])
     else
-      redirect_to "/signin"
+      redirect_to "/login"
     end
   end
 
   def create
-    @social_worker = SocialWorker.find_by(email: params[:user][:email])
-    if @social_worker && @social_worker.authenticate(params[:user][:password])
-        session[:id] = @social_worker.id
-        redirect_to '/cases'
+    @social_worker = SocialWorker.find_by(email: params[:social_worker][:email])
+    if @social_worker && @social_worker.authenticate(params[:social_worker][:password])
+      session[:id] = @social_worker.id
+      redirect_to "/dashboard"
     else
-        flash[:errors] = "Incorrect Email of Password"
-        redirect_to '/signin'
+      flash[:errors] = "Incorrect Email of Password"
+      redirect_to "/login"
     end
   end
 
   def destroy
     session.clear
-    redirect_to '/signin'
+    redirect_to "/welcome"
+  end
+
+  def dashboard
+    @mycases = Case.where(social_worker_id: session[:id])
+    render "dashboard"
+  end
+
+  def welcome
+    render "welcome"
   end
 
   private
