@@ -1,55 +1,76 @@
-<h1>Case Details</h1>
+<h1 class="display-1 text-center">Case Details</h1>
 
-<h2>Client</h2>
-<img src='<%=@case.client.image_url%>'>
-<h3><%= link_to @case.client.name, client_path(@case.client)%></h3>
-
-<h2>Social Worker</h2>
-<img src='<%=@case.social_worker.image_url%>'>
-<h3><%= link_to @case.social_worker.name, social_worker_path(@case.social_worker)%></h3>
-
-<h2>Resource</h2>
-<h3><%= link_to @case.resource.name, resource_path(@case.resource)%></h3>
-
-<h2>Focus</h2>
-<h3><%=@case.focus%></h3>
-
-<h2>Status</h2>
-<h3><%=@case.status%></h3>
-
-<h2>Notes</h2>
-<ul>
-    <% @case.notes.each do |note| %>
-    <div class="card">
-        <h5 class="card-header"><%= note.format_time %> by <%= note.created_by %></h5>
-        <div class="card-body">
-            <p class="card-text"><%= note.content %></p>
-            <form method="post" action='/notes/<%=note.id%>'>
-            <input type="hidden" name="_method" value="DELETE">
-                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                <input type="hidden" name="id" value="<%=note.id%>">
-                <input type="submit" value="Delete" class="btn btn-primary">
-            </form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <u>
+                <h1 class="display-4 text-left">Client</h1>
+            </u>
+            <img src="<%=@case.client.image_url%>" class="img-fluid img-thumbnail" alt="Client Picture">
+            <h3><%= link_to @case.client.name, client_path(@case.client)%></h3>
+        </div>
+        <div class="col-sm-6">
+            <u>
+                <h1 class="display-4 text-left">Social Worker</h1>
+            </u>
+            <img src="<%=@case.social_worker.image_url%>" class="img-fluid img-thumbnail" alt="Client Picture">
+            <h3><%= link_to @case.social_worker.name, social_worker_path(@case.social_worker)%></h3>
         </div>
     </div>
-    <% end %>
-</ul>
+    <u>
+        <h1 class="display-4 text-left">Resource</h1>
+    </u>
+    <h3><%= link_to @case.resource.name, resource_path(@case.resource)%></h3>
 
-<form action='/notes' method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="note[case_id]" value="<%= @case.id %>">
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Notes</span>
+    <u>
+        <h1 class="display-4 text-left">Focus</h1>
+    </u>
+    <h3><%=@case.focus%></h3>
+
+    <u>
+        <h1 class="display-4 text-left">Status</h1>
+    </u>
+    <h3><%=@case.status%></h3>
+
+    <u>
+        <h1 class="display-4 text-left">Notes</h1>
+    </u>
+    <ul>
+        <% @case.notes.each do |note| %>
+        <div class="card">
+            <h5 class="card-header"><%= note.format_time %> by <%= note.created_by %></h5>
+            <div class="card-body">
+                <p class="card-text"><%= note.content %></p>
+                <form method="post" action='/notes/<%=note.id%>'>
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="id" value="<%=note.id%>">
+                    <input type="submit" value="Delete" class="btn btn-primary">
+                </form>
+            </div>
         </div>
-        <textarea class="form-control" aria-label="With textarea" name="note[content]"></textarea>
-    </div><br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
- <a class="btn btn-primary" href="/cases/<%=@case.id%>/edit" role="button">Edit</a><br><br>
+        <% end %>
+    </ul>
 
- <form method="post" action='/cases/<%=@case.id%>/close'>
-                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                <input type="hidden" name="id" value="<%=@case.id%>">
-                <input type="submit" value="Close" class="btn btn-primary">
-            </form>
+    <form action='/notes' method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="note[case_id]" value="<%= @case.id %>">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Notes</span>
+            </div>
+            <textarea class="form-control" aria-label="With textarea" name="note[content]"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Note</button>
+    </form><br>
+    <hr>
+    <a class="btn btn-primary" href="/cases/<%=@case.id%>/edit" role="button">Edit Case</a><br><br>
+
+    <form method="post" action='/cases/<%=@case.id%>/close'>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="id" value="<%=@case.id%>">
+        <input type="submit" value="Close Case" class="btn btn-primary"><br><br>
+    </form>
+</div>
+</div>
+</div>

@@ -1,11 +1,59 @@
-<h1>Edit a Case</h1>
+<h1 class="display-1 text-center">Edit Case</h1>
 
-<% if flash[:errors] %>
-    <% flash[:errors].each do |error| %>
-    <div class="alert alert-danger" role="alert">
-  <%= error %>
+<div class="container">
+    <form action="/cases/<%=@case.id%>" accept-charset="UTF-8" data-remote="true" method="post">
+    <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+        <% end %>
+        <% end %>
+        <div class="form-group">
+            <label for="case_client_id">Select a Client</label>
+            <select class="form-control" id="case_client_id" name="case[client_id]">
+                <option value="">Select a Client</option>
+                <% @clients.each do |client| %>
+                <% if @case.client == client %>
+                <option selected="selected" value="<%=client.id%>"><%=client.name%></option>
+                <% else %>
+                <option value="<%=client.id%>"><%=client.name%></option>
+                <% end %>
+                <% end %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="case_social_worker_id">Select a Social Worker</label>
+            <select class="form-control" id="case_social_worker_id" name="case[social_worker_id]">
+                <option value="">Select a Social Worker</option>
+                <% @social_workers.each do |sw| %>
+                <% if @case.social_worker == sw %>
+                <option selected="selected" value="<%=sw.id%>"><%=sw.name%></option>
+                <% else %>
+                <option value="<%=sw.id%>"><%=sw.name%></option>
+                <% end %>
+                <% end %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="case_Resource_id">Select a Resource</label>
+            <select class="form-control" id="case_resource_id" name="case[resource_id]">
+                <option value="">Select a Resource</option>
+                <% @resources.each do |resource| %>
+                <% if @case.resource == resource %>
+                <option selected="selected" value="<%=resource.id%>"><%=resource.name%></option>
+                <% else %>
+                <option value="<%=resource.id%>"><%=resource.name%></option>
+                <% end %>
+                <% end %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="case_focus">Focus</label>
+            <input type="text" class="form-control" name="case[focus]" id="case_focus" placeholder="Focus" value="<%=@case.focus%>">
+        </div>
+        <input class="btn btn-primary" type="submit" name="commit" value="Save Changes" data-disable-with="Save Changes" />
+    </form>
 </div>
-    <% end %>
-<% end %>
-
-<%= render 'form'%>

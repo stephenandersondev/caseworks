@@ -40,7 +40,7 @@ class CasesController < ApplicationController
       redirect_to case_path(@case)
     else
       flash[:errors] = @case.errors.full_messages
-      redirect_to new_case_path
+      redirect_to edit_case_path
     end
   end
 
