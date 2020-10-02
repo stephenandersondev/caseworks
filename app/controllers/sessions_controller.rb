@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
   end
 
   def dashboard
-    @mycases = Case.where(social_worker_id: session[:id])
+    @mycases = Case.where(social_worker_id: session[:id], status: "open")
     render "dashboard"
   end
 

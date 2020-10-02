@@ -1,13 +1,30 @@
-<h1>Social Worker Details</h1>
+<h1 class="display-1 text-center">Social Worker Details</h1>
 
-<h2>Name</h2>
-<h3><%= @social_worker.name %></h3>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="<%=@social_worker.image_url%>" class="img-fluid img-thumbnail" alt="Social Worker Picture">
+        </div>
+        <div class="col-sm-6">
+            <u>
+                <h1 class="display-4 text-left">Name</h1>
+            </u>
+            <h3><%= @social_worker.name %></h3>
 
-<h2>Phone</h2>
-<h3><%= @social_worker.phone_number %></h3>
+            <u>
+                <h1 class="display-4 text-left">Phone</h1>
+            </u>
+            <h3><%= @social_worker.phone_number %></h3>
 
-<h2>Email</h2>
-<h3><%= @social_worker.email %></h3>
+            <u>
+                <h1 class="display-4 text-left">Email</h1>
+            </u>
+            <h3><%= @social_worker.email %></h3>
 
-<h2>Specialty</h2>
-<h3><%= @social_worker.specialty %></h3>
+            <u>
+                <h1 class="display-4 text-left">Specialty</h1>
+            </u>
+            <h3><%= @social_worker.specialty %></h3>
+        </div>
+    </div>
+</div>

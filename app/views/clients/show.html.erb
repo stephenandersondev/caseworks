@@ -1,22 +1,39 @@
-<h1>Client Details</h1>
+<h1 class="display-1 text-center">Client Details</h1>
 
-<h2>Name</h2>
-<h3><%= @client.name %></h3>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="<%=@client.image_url%>" class="img-fluid img-thumbnail" alt="Client Picture">
+        </div>
+        <div class="col-sm-6">
+            <u>
+                <h1 class="display-4 text-left">Name</h1>
+            </u>
+            <h3><%= @client.name %></h3>
 
-<h2>Phone</h2>
-<h3><%= @client.phone_number %></h3>
+            <u>
+                <h1 class="display-4 text-left">Phone</h1>
+            </u>
+            <h3><%= @client.phone_number %></h3>
 
-<h2>Email</h2>
-<h3><%= @client.email %></h3>
+            <u>
+                <h1 class="display-4 text-left">Email</h1>
+            </u>
+            <h3><%= @client.email %></h3>
 
-<h2>Age</h2>
-<h3><%= @client.age %></h3>
+            <u>
+                <h1 class="display-4 text-left">Age</h1>
+            </u>
+            <h3><%= @client.age %></h3><br>
 
- <a class="btn btn-primary" href="/clients/<%=@client.id%>/edit" role="button">Edit</a><br><br>
+            <a class="btn btn-primary" href="/clients/<%=@client.id%>/edit" role="button">Edit</a><br><br>
 
- <form method="post" action='/clients/<%=@client.id%>'>
-            <input type="hidden" name="_method" value="DELETE">
+            <form method="post" action='/clients/<%=@client.id%>'>
+                <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                 <input type="hidden" name="id" value="<%=@client.id%>">
                 <input type="submit" value="Delete" class="btn btn-primary">
             </form>
+        </div>
+    </div>
+</div>

@@ -1,42 +1,55 @@
-<h1>Resource Details</h1>
+<h1 class="display-1 text-center">Resource Details</h1>
 
-<h2>Name</h2>
-<h3><%= @resource.name %></h3>
+<div class="container">
+    <div class="row">
+    <div class="col-md-4">
+            <iframe width="600" height="450" frameborder="0" style="border:0" src="<%=@resource.maps_link%>" allowfullscreen>
+            </iframe>
+        </div>
+        <div class="col-md-4 offset-md-4">
+            <u>
+                <h1 class="display-4 text-left">Name</h1>
+            </u>
+            <h3><%= @resource.name %></h3>
 
-<img src='<%= @resource.image_url%>' class="img-thumbnail">
+            <u>
+                <h1 class="display-4 text-left">Address</h1>
+            </u>
+            <h3><%= @resource.address %></h3>
 
-<iframe
-  width="600"
-  height="450"
-  frameborder="0" style="border:0"
-  src="<%=@resource.maps_link%>" allowfullscreen>
-</iframe>
+            <u>
+                <h1 class="display-4 text-left">Phone</h1>
+            </u>
+            <h3><%= @resource.phone_number %></h3>
 
-<h2>Address</h2>
-<h3><%= @resource.address %></h3>
+            <u>
+                <h1 class="display-4 text-left">Categories</h1>
+            </u>
+            <h3><%= @resource.categories %></h3>
 
-<h2>Phone</h2>
-<h3><%= @resource.phone_number %></h3>
+            <u>
+                <h1 class="display-4 text-left">Description</h1>
+            </u>
+            <h3><%= @resource.description %></h3>
 
-<h2>Categories</h2>
-<h3><%= @resource.categories %></h3>
+            <u>
+                <h1 class="display-4 text-left">Hours</h1>
+            </u>
+            <h3><%= @resource.hours %></h3>
 
-<h2>Description</h2>
-<h3><%= @resource.description %></h3>
+            <u>
+                <h1 class="display-4 text-left">Web</h1>
+            </u>
+            <h3><%= link_to @resource.web_address, @resource.web_address %></h3><br>
 
-<h2>Hours</h2>
-<h3><%= @resource.hours %></h3>
+            <a class="btn btn-primary" href="/resources/<%=@resource.id%>/edit" role="button">Edit</a><br><br>
 
-<h2>Web</h2>
-<h3><%= link_to @resource.web_address, @resource.web_address %></h3>
-
-
- <a class="btn btn-primary" href="/resources/<%=@resource.id%>/edit" role="button">Edit</a>
-
- <form method="post" action='/resources/<%=@resource.id%>'>
-    <input type="hidden" name="_method" value="DELETE">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="hidden" name="id" value="<%=@resource.id%>">
-      <input type="submit" value="Delete" class="btn btn-primary">
-</form>
-
+            <form method="post" action='/resources/<%=@resource.id%>'>
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="id" value="<%=@resource.id%>">
+                <input type="submit" value="Delete" class="btn btn-primary"><br><br>
+            </form>
+        </div>
+    </div>
+</div>
