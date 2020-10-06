@@ -25,7 +25,7 @@ After creating a new account, you can then login using your email and password.
 ![login_page](https://github.com/stephenandersondev/caseworks-app/blob/master/app/assets/images/login.png?raw=true)
 
 ### Dashboard
-After logging, you will see a dashboard of all cases assigned to you.
+After logging in, you will see a dashboard of all cases assigned to you.
 
 ![caseworks_dashboard](https://github.com/stephenandersondev/caseworks-app/blob/master/app/assets/images/dashboard.png?raw=true)
 
