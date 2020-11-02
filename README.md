@@ -7,6 +7,9 @@ CaseWorks App
 
 This project was created by @stephenandersondev and @christina888 as part of week 6 of the Flatiron School Software Engineering program. The application is a case management system for social workers serving Austin's LGBTQ population. 
 
+# Demo Video
+https://youtu.be/pw_XUwezDgI
+
 # Basic Usage
 
 ### Welcome Page
