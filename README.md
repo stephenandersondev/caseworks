@@ -1,4 +1,4 @@
-CaseWorks App 
+CaseWorks
 ========================
 
 ![caseworks_dashboard](https://github.com/stephenandersondev/caseworks-app/blob/master/app/assets/images/dashboard.png?raw=true)
